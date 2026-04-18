@@ -1,4 +1,13 @@
-<p style="color: green"><%= notice %></p>
+
+<!-- <p style="color: green"><%#= notice %></p> -->
+
+<!-- uses bootstrap for update alert message -->
+<% if notice %>
+  <div class="alert alert-success">
+    <%= notice %>
+  </div>
+<% end %>
+
 
 <% content_for :title, "Microposts" %>
 

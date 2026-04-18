@@ -13,6 +13,8 @@
     <%= favicon_link_tag 'icon.png', :rel => 'apple-touch-icon', :type => 'image/png' %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag :main %>
+    <!-- allows js features -->
+    <%= javascript_importmap_tags %>
   </head>
 
   <body>
