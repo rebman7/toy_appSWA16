@@ -8,6 +8,7 @@ class UsersController < ApplicationController
 
   # GET /users/1 or /users/1.json
   def show
+    @post = @user.microposts
   end
 
   # GET /users/new
@@ -19,6 +20,11 @@ class UsersController < ApplicationController
   def edit
   end
 
+  #GET /user/1/boost
+  def boost
+    @user.update(boost: true)
+    redirect_to user_path(@user), notice: "User was successfully BOOSTED."
+  end 
   # POST /users or /users.json
   def create
     @user = User.new(user_params)
@@ -38,7 +44,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to @user, notice: "User was successfully updated." }
+        format.html { redirect_to @user, notice: "You have successfully signed up." }
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -65,6 +71,6 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.require(:user).permit(:name, :email)
+      params.require(:user).permit(:name, :email, :password, :password_confirmation)
     end
 end

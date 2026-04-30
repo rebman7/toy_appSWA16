@@ -14,7 +14,9 @@
 <div class="card">
   <div class="card-header">
     <i class="bi bi-journals"></i> <%= pluralize(@microposts.count, "MICROPOST", plural:"MICROPOSTS") %>
-    <a href="<%= new_micropost_path %>" class="btn btn-primary btn-sm float-end"><i class="bi bi-pencil-square"></i> New Micropost</a>
+    <% if logged_in? %>
+      <a href="<%= new_micropost_path %>" class="btn btn-primary btn-sm float-end"><i class="bi bi-pencil-square"></i> New Micropost</a>
+      <% end %>
   </div>
   <div class="card-body">
 

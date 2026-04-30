@@ -1,0 +1,13 @@
+<% content_for :title, "Log In" %>
+
+<% flash.each do |message_type, message| %>
+	<%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
+<% end %>
+
+<div class="card">
+  <div class="card-header">Sign In to Toy App</div>
+  <div class="card-body">
+    <%= render "form", session: @session %>
+    <p>New user? <a href="<%= signup_path %>" class="card-link">Sign Up</a></p>
+  </div>
+</div>

@@ -6,6 +6,12 @@
     <a href="<%= like_micropost_url(micropost) %>" class="btn btn-outline-success btn-sm">
       LIKE POST
     </a>
+    <% if owner?(micropost)%>
+
+    <a href="<%= edit_micropost_url(micropost) %>" class="card-link">Edit Post</a>
+    <%= button_to "Delete Post", micropost, method: :delete, class: "btn btn-danger btn-sm" %>
+    <% end %>
+
   </div>
   <div class="card-footer">
     <span class="badge text-bg-success"><%= pluralize(micropost.likes,'like') %></span>

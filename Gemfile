@@ -5,6 +5,9 @@ gem "rails", "~> 8.1.3"
 
 ruby "3.4.8"
 
+#for generating password_digest, encrypting passwords 
+gem "bcrypt"
+
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 

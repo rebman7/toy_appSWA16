@@ -44,6 +44,16 @@
             
           </ul>
         </div>
+        <div class="d-flex" role="search">
+        <% if logged_in? %>
+          <a href="<%= user_url(current_user) %>" class="btn btn-outline-success btn-sm"><%= current_user.name %></a>
+          <a href="<%= edit_user_url(current_user) %>" class="btn btn-outline-warning btn-sm">Edit Profile</a>
+          <%= button_to "Log Out", logout_path, method: :delete, class: "btn btn-outline-danger btn-sm" %>
+        <% else %>
+          <a href="<%= login_url %>" class="btn btn-outline-success btn-sm">Log In</a>
+          <a href="<%= signup_url %>" class="btn btn-outline-warning btn-sm">Sign Up</a>
+        <% end %>
+        </div>
       </div>
     </nav>
     <div class="container-fluid">

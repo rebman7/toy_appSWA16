@@ -11,17 +11,20 @@
     </div>
   <% end %>
 
+
   <div class="input-group mb-3">
     <span class="input-group-text">USER ID</span>
     
 
-    <%= form.select :user_id, options_for_select(@select_options,:selected=>micropost.user_id),{}, {:class => 'form-control'} %>
+    <%= form.select :user_id, options_for_select(@user_options,:selected=>micropost.user_id),{}, {:class => 'form-control'} %>
   </div>
+
 
   <div class="input-group">
     <span class="input-group-text">CONTENT</span>
     <%= form.text_area :content, class:"form-control", placeholder: "CONTENT", :rows => "3" %>
-  </div>
+  </div> 
+
 
   <div>
     <button type="submit" class="btn btn-primary">Create MicroPost</button>
